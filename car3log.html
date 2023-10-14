@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="formvalid.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+</style>
+
+</head>
+<body>
+    <div id="logbox">
+  <span id="log">Log in</span><span id="sign" onclick="sign()">Sign Up</span>
+<div id="form">
+        <form action="">
+            <div id="emailbox">
+           <label for="" style="  margin-left: -32%;">*Enter Your Email Address</label> <br>  
+        <input type="text" id="email">
+    </div> 
+    <label for="" style="display: flex; margin-top: 23%;   margin-left: -32%;">*Enter The Password</label>
+     <div id="passbox">  <input type="text" id="password"> </div>
+        <div id="butbox"><br> <button id="donebut">DONE</button> </div> 
+    </div>
+        
+</form>
+
+    </div>
+
+    <div id="logboxside"><img  id="bmwim"  src="bmw.png" alt="" style="height: 160px; margin-left: 30px; margin-top: 90%;">        
+    </div>
+
+
+<!-- *//BOX 2// -->
+
+
+
+
+    <div id="box2"> 
+<h1>Create Account</h1>
+<div >
+
+<p style="margin-left: 7%;">*Name</p> 
+<input type="text" id="namebar" style="margin-left: 7%;">
+
+<p style="    margin-left: 56%;margin-top: 44px;position: absolute;top: 71px;left: 7px;
+">*Ph Number</p> <br>
+<input type="numbers" id="phnum" style="display: flex;
+margin-left: 57%; margin-top: -32px; position: relative;">
+
+
+<p style="    margin-top: 94px;
+margin-left: 7%;">*Email Address</p> <br>
+    <input type="text" id="emailbox2" style="    margin-top: -3%;
+    display: flex;
+    margin-left: 7%;">
+
+
+    <p style="    margin-left: 58%;
+    margin-top: -51px;
+">*Password</p> <br>
+    <input type="password" id="passbox2" style="    display: flex;
+    margin-left: 57%;
+    margin-top: -4%;
+">
+<div>
+    <button id="subbut2">CREATE</button>
+</div>
+
+</div>
+
+
+
+    </div>
+<div id="succbox">
+  
+    <svg class="bell" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path></svg>
+   
+
+   <p style="margin-top: 8px;
+   margin-left: 11px;
+"> Account Created</p><i style="    margin-top: 11px;
+    margin-left: 75px; margin-top: 13px;" class="fa-solid fa-xmark " id="cross"></i>
+</div>
+
+<div id="wrongbox" >
+    <i id="danger" class="fa-solid fa-triangle-exclamation"></i>  <p> Please Input The Field</p> <i class="fa-solid fa-xmark" id="cross2"></i>
+
+</div>
+
+      <script>
+
+let email1= document.getElementById('email');
+let password1 = document.getElementById('password');
+let log = document.getElementById('log');
+let signup = document.getElementById('sign');
+let sidebox  =document.getElementById('logboxside');
+let firstbox= document.getElementById('logbox');
+let secbox = document.getElementById('box2');
+let createbut = document.getElementById('subbut2');
+let donebutl= document.getElementById('donebut');
+let emailsec= document.getElementById('emailbox2');
+let passwordsec = document.getElementById('passbox2');
+let noti = document.getElementById('succbox');
+let X = document.getElementById('cross');
+let wrongbox = document.getElementById('wrongbox');
+let x2 = document.getElementById('cross2');
+
+
+function sign(){
+    signup.style.backgroundColor='black';
+    signup.style.color='#fff';
+    log.style.backgroundColor='#fff';
+    log.style.color='black';
+    secbox.style.zIndex='2';
+    signbut = document.getElementById('subbut2');
+    logbut = document.getElementById('donebut');
+
+
+
+}
+log.addEventListener("click" , function but1(){
+    log.style.backgroundColor='black';
+    log.style.color='#fff';
+    signup.style.backgroundColor='#fff';
+    signup.style.color='black';
+    secbox.style.zIndex='0';
+})
+createbut.addEventListener("click" , function createfun(){
+localStorage.setItem('useremail',emailsec.value);
+localStorage.setItem('userpass', passwordsec.value);
+
+if(emailsec.value == '' || passwordsec.value == ''){
+    wrongbox.style.top= '0.2%'
+}else{
+   noti.style.top='0.2%';
+
+}
+
+
+
+
+})
+
+let getemail = localStorage.getItem('useremail');
+let getpass  = localStorage.getItem('userpass');
+
+donebutl.addEventListener("click" , function donebuut(){
+    if(email1.value == getemail && password1.value == getpass){
+    alert('Succesfully Logged In');
+    window.open('car3.html' ,"target_parent")
+
+
+    } else{
+        alert('Inncorect ID and Pass');
+   
+    }
+})
+
+
+X.addEventListener("click" , function cro(){
+    noti.style.top='-7%';
+})
+x2.addEventListener("click" , function cro2(){
+    wrongbox.style.top='-7%';
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+     </script>
+</body>
+</html>
